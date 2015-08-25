@@ -6,6 +6,9 @@
 		$routeProvider.when('/rules', {
 			templateUrl: 'templates/rules.html',
 			controller: 'RulesController'
+		}).when('/game', {
+			templateUrl: 'templates/game.html',
+			//controller: 'RulesController'
 		}).otherwise({redirectTo: '/rules'});
 		$translateProvider.translations('it', MSG_IT)
 			.translations('en', MSG_EN)
