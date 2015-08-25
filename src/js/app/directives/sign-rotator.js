@@ -1,18 +1,22 @@
 (function(ng){
 	ng.module('rspls')
-		.directive('logo', ['$interval',
-		 function($interval) {
+		.directive('signRotator', ['$interval', '$rootScope',
+		 function($interval, $rootScope) {
 			return {
 				restrict: 'E',
+				scope: {
+					timeInterval: '=*interval'
+				},
 				template: '<i class="fa fa-fw fa-2x" ng-class="\'fa-hand-\' + sign + \'-o\'"></i>',
-				link: function postLink(scope, element, attrs, controller) {
+				link: function(scope, element, attrs, controller) {
 					var signIdx = 0,
-					signs = scope.rules.signs;
+						signs = $rootScope.rules.signs,
+						timeInterval = scope.timeInterval || 1000;
 					scope.sign = signs[signIdx];
 					$interval(function() {
 						signIdx = (signIdx + 1) % signs.length;
 						scope.sign = signs[signIdx];
-					}, 3000);
+					}, timeInterval);
 				}
 			};
 		 }]);

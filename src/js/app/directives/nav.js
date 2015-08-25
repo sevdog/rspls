@@ -4,7 +4,7 @@
 		 function($location) {
 			return {
 				restrict: 'A',
-				link: function postLink(scope, element, attrs, controller) {
+				link: function(scope, element, attrs, controller) {
 					// Watch for the $location
 					scope.$watch(function() {
 						return $location.path();
