@@ -17,4 +17,9 @@ var MSG_EN = {
 	'rule.vs.SL': 'Scissors decapitates Lizard',
 	'rule.vs.SS': 'Spock smashes Scrissors',
 	'rule.vs.SR': 'Spock vaporizes Rock',
+	'game.player': 'Player',
+	'game.pc': 'CPU',
+	'game.win': 'Wins',
+	'game.tie': 'Tie',
+	'game.lost': 'Lost'
 };

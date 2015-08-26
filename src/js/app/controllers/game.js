@@ -29,8 +29,10 @@
 					$scope.counter.tie++;
 					return;
 				}
-				$scope.counter.win++;
-				$scope.playerWin = rules.win[sign][$scope.pcSign];
+				$scope.playerWin = parseInt(rules.wins[sign][$scope.pcSign]);
+				if ($scope.playerWin) {
+					$scope.counter.win++;
+				}
 			};
 		 }]);
 })(angular);

@@ -17,4 +17,9 @@ var MSG_IT = {
 	'rule.vs.SL': 'Le Forbici decapitano Lizard',
 	'rule.vs.SS': 'Spock rompe le Forbici',
 	'rule.vs.SR': 'Spock vaporizza il Sasso',
+	'game.player': 'Giocatore',
+	'game.pc': 'CPU',
+	'game.win': 'Vittorie',
+	'game.tie': 'Pareggi',
+	'game.lost': 'Sconfitte'
 };

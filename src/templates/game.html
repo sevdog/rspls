@@ -24,3 +24,23 @@
 		</button>
 	</div>
 </div>
+<div class="row" style="margin-top:30px">
+	<div class="col-xs-12 col-sm-offset-4 col-sm-4">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>{{:: 'game.win' | translate }}</th>
+					<th>{{:: 'game.tie' | translate }}</th>
+					<th>{{:: 'game.lost' | translate }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="text-center">{{ counter.win }}</td>
+					<td class="text-center">{{ counter.tie }}</td>
+					<td class="text-center">{{ counter.play - counter.win - counter.tie }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
