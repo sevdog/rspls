@@ -2,3 +2,13 @@
 	padding-top: 7px;
 	padding-bottom: 7px;
 }
+.btn > h2 {
+	margin-top: 0;
+	margin-bottom:0;
+}
+.btn-toolbar-centered {
+	text-align: center;
+}
+.btn-toolbar-centered .btn {
+	float: none;
+}

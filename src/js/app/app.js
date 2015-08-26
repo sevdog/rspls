@@ -8,7 +8,7 @@
 			controller: 'RulesController'
 		}).when('/game', {
 			templateUrl: 'templates/game.html',
-			//controller: 'RulesController'
+			controller: 'GameController'
 		}).otherwise({redirectTo: '/rules'});
 		$translateProvider.translations('it', MSG_IT)
 			.translations('en', MSG_EN)

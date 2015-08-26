@@ -1,1 +1,26 @@
-TODO
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
+		<button type="button" class="btn btn-lg btn-warning">
+			<h2>
+				<sign-rotator interval="5000" ng-hide="timing || choose"></sign-rotator>
+				<sign-rotator interval="200" ng-show="timing && !choose"></sign-rotator>
+				<i class="fa fa-fw fa-2x" ng-show="choose" ng-class="'fa-hand-' + rules.signs[pcSign] + '-o'"></i>
+			</h2>
+		</button>
+	</div>
+</div>
+<div class="row">
+	<h3 class="col-xs-12 text-center"><i>vs</i></h3>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+		<h2 class="btn-toolbar btn-toolbar-centered" role="toolbar">
+			<button type="button" class="btn btn-lg btn-primary" ng-disabled="!isPlaying" ng-repeat="sign in rules.signs" ng-click="chooseSign(sign)">
+				<h2><i class="fa fa-fw fa-2x" ng-class="'fa-hand-' + sign + '-o'"></i></h2>
+			</button>
+		</h2>
+		<button class="btn btn-default btn-lg center-block" ng-click="play()" ng-disabled="isPlaying">
+			<i class="fa fa-play"></i>
+		</button>
+	</div>
+</div>
