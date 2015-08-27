@@ -1,4 +1,5 @@
 .project
 .tern-project
-.settings/*
+.settings/**
 *.bat
+src/**/assets/**
