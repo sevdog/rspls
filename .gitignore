@@ -3,3 +3,4 @@
 .settings/**
 *.bat
 src/**/assets/**
+src/fonts/**
