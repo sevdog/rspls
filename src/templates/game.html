@@ -1,3 +1,9 @@
+<div class="game-msg" ng-show="showMsg">
+	<div class="alert text-center" ng-class="{'alert-warning': tie, 'alert-success': playerWin, 'alert-danger': !tie && !playerWin}">
+		<i class="fa" ng-class="{'fa-thumbs-up': playerWin, 'fa-thumbs-down': !tie && !playerWin}" ng-hide="tie"></i>
+		{{ winningPhrase | translate }}
+	</div>
+</div>
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
 		<button type="button" class="btn btn-lg btn-warning">
@@ -15,7 +21,8 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
 		<h2 class="btn-toolbar btn-toolbar-centered" role="toolbar">
-			<button type="button" class="btn btn-lg btn-primary" ng-disabled="!isPlaying" ng-repeat="sign in rules.signs" ng-click="chooseSign(sign)">
+			<button type="button" class="btn btn-lg" ng-disabled="!isPlaying" ng-repeat="sign in rules.signs" ng-click="chooseSign(sign)"
+				ng-class="btnClass(sign)">
 				<h2><i class="fa fa-fw fa-2x" ng-class="'fa-hand-' + sign + '-o'"></i></h2>
 			</button>
 		</h2>
