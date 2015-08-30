@@ -1,0 +1,19 @@
+<h1 class="page-header">
+	Rock-Scissor-Paper-Lizard-Spock
+</h1>
+<p>{{:: 'rule.desc' | translate }}</p>
+<div class="row">
+	<ul class="list-unstyled col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+		<li ng-repeat="sign in rules.signs">
+			<h2><i class="fa fa-fw" ng-class="'fa-hand-' + sign + '-o'"></i> {{:: sign | translate }}</h2>
+			<div class="row">
+				<div class="col-xs-6" ng-repeat="other in rules.signs | filter : winMatch(sign)">
+					<blockquote>
+						<b class="fa fa-fw text-success" ng-class="'fa-hand-'+ sign + '-o'"></b> vs <i class="fa fa-fw text-danger" ng-class="'fa-hand-'+ other + '-o'"></i>
+						<p class="small">{{ :: phrases[sign][other] | translate }}</p>
+					</blockquote>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

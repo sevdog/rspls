@@ -16,39 +16,42 @@
 			.fallbackLanguage('en');
 	}]);
 	
-	app.run(['$rootScope', function($rootScope) {
-		var gameMechanism = {
-			signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
-			wins : {
-				rock:     '01010'.split(''),
-				scissors: '00110'.split(''),
-				paper:    '10001'.split(''),
-				lizard:   '00101'.split(''),
-				spock:    '11000'.split('')
-			}
-		};
-		$rootScope.rules = gameMechanism;
-		$rootScope.phrases = {
-			rock: {
-				scissors: 'rule.vs.RS',
-				lizard: 'rule.vs.RL'
-			},
-			scissors: {
-				paper : 'rule.vs.SP',
-				lizard: 'rule.vs.SL'
-			},
-			paper: {
-				rock: 'rule.vs.PR',
-				spock: 'rule.vs.PS'
-			},
-			lizard: {
-				paper: 'rule.vs.LP',
-				spock: 'rule.vs.LS'
-			},
-			spock: {
-				rock: 'rule.vs.SR',
-				scissors: 'rule.vs.SS'
-			}
+	app.constant('version', '1.0.0')
+	app.constant('rules',{
+		signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
+		wins : {
+			rock:     '01010'.split(''),
+			scissors: '00110'.split(''),
+			paper:    '10001'.split(''),
+			lizard:   '00101'.split(''),
+			spock:    '11000'.split('')
 		}
+	});
+
+	app.constant('phrases',{
+		rock: {
+			scissors: 'rule.vs.RS',
+			lizard: 'rule.vs.RL'
+		},
+		scissors: {
+			paper : 'rule.vs.SP',
+			lizard: 'rule.vs.SL'
+		},
+		paper: {
+			rock: 'rule.vs.PR',
+			spock: 'rule.vs.PS'
+		},
+		lizard: {
+			paper: 'rule.vs.LP',
+			spock: 'rule.vs.LS'
+		},
+		spock: {
+			rock: 'rule.vs.SR',
+			scissors: 'rule.vs.SS'
+		}
+	});
+	app.run(['$rootScope', 'rules', 'phrases', function($rootScope, rules, phrases) {
+		$rootScope.rules = rules;
+		$rootScope.phrases = phrases;
 	}]);
 })(angular);

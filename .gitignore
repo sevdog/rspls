@@ -4,3 +4,7 @@
 *.bat
 src/**/assets/**
 src/fonts/**
+dist/css/assets.css
+dist/css/assets.css.map
+dist/js/assets.js
+dist/fonts/**
