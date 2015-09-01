@@ -1,7 +1,9 @@
 (function(ng){
 	ng.module('rspls')
-		.controller('GameController', ['$scope', '$timeout', '$translate',
-		 function($scope, $timeout, $translate) {
+		.controller('GameController', ['$scope', '$timeout', '$interval', '$translate',
+		 function($scope, $timeout, $interval, $translate) {
+			var interval,
+				startLeft = true;
 			$scope.isPlaying = false;
 			$scope.timing = false;
 			$scope.choose = false;
@@ -14,11 +16,18 @@
 				$scope.isPlaying = true;
 				$scope.timing = true;
 				$scope.choose = false;
+
+				interval = $interval(function() {
+					$scope.pcPos = startLeft ? 'move-left' : 'move-right';
+					startLeft = !startLeft;
+				}, 400);
 				delete $scope.playerWin;
 				delete $scope.tie;
 				delete $scope.choosedSign;
 			}
 			$scope.chooseSign = function (sign) {
+				$interval.cancel(interval);
+				delete $scope.pcPos;
 				$scope.counter.play++;
 				$scope.timing = false;
 				$scope.isPlaying = false;

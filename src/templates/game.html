@@ -6,13 +6,13 @@
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
-		<button type="button" class="btn btn-lg btn-warning">
+		<span class="btn btn-lg btn-warning pc-sign" ng-class="pcPos">
 			<h2>
 				<sign-rotator interval="5000" ng-hide="timing || choose"></sign-rotator>
 				<sign-rotator interval="200" ng-show="timing && !choose"></sign-rotator>
 				<i class="fa fa-fw fa-2x" ng-show="choose" ng-class="'fa-hand-' + rules.signs[pcSign] + '-o'"></i>
 			</h2>
-		</button>
+		</span>
 	</div>
 </div>
 <div class="row">
