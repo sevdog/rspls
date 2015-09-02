@@ -8,3 +8,5 @@ dist/css/assets.css
 dist/css/assets.css.map
 dist/js/assets.js
 dist/fonts/**
+node_modules/**
+src/js/app/templates/rspls.js
