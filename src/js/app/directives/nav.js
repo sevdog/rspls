@@ -13,10 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-(function(ng){
-	ng.module('rspls')
-		.directive('nav', ['$location',
-		 function($location) {
+angular.module('rspls')
+	.directive('nav', ['$location',
+		function($location) {
 			return {
 				restrict: 'A',
 				link: function(scope, element, attrs, controller) {
@@ -38,5 +37,4 @@
 					});
 				}
 			};
-		 }]);
-})(angular);
+		}]);

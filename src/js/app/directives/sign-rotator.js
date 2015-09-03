@@ -13,10 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-(function(ng){
-	ng.module('rspls')
-		.directive('signRotator', ['$interval', '$rootScope',
-		 function($interval, $rootScope) {
+angular.module('rspls')
+	.directive('signRotator', ['$interval', '$rootScope',
+		function($interval, $rootScope) {
 			return {
 				restrict: 'E',
 				scope: {
@@ -34,5 +33,4 @@
 					}, timeInterval);
 				}
 			};
-		 }]);
-})(angular);
+		}]);

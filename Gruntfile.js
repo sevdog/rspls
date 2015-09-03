@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 					mangle: {
 						except: ['angular']
 					},
+					wrap: '<%= pkg.name %> ',
 					compress: true,
 					banner: '/*! <%= pkg.name %>  \n'
 						+ ' * Copyright 2015-<%= grunt.template.today("yyyy") %> sevdog\n'
@@ -30,7 +31,7 @@ module.exports = function(grunt) {
 				dest: 'dist/js/<%= pkg.name %>.js'
 			},
 			pack: {
-				src: 'src/js/assets/*.js',
+				src: ['src/js/assets/angular.min.js', 'src/js/assets/*.js'],
 				dest: 'dist/js/assets.js'
 			}
 		},

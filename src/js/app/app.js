@@ -13,11 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-(function(ng){
-	var app = ng.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria',
-	                              'pascalprecht.translate']);
-	app.config(['$routeProvider', '$translateProvider',
-	            function($routeProvider, $translateProvider) {
+var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria',
+	'pascalprecht.translate']);
+app.config(['$routeProvider', '$translateProvider',
+	function($routeProvider, $translateProvider) {
 		$routeProvider.when('/rules', {
 			templateUrl: 'templates/rules.html',
 			controller: 'RulesController'
@@ -30,43 +29,43 @@
 			.determinePreferredLanguage()
 			.fallbackLanguage('en');
 	}]);
-	
-	app.constant('version', '1.0.0')
-	app.constant('rules',{
-		signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
-		wins : {
-			rock:     '01010'.split(''),
-			scissors: '00110'.split(''),
-			paper:    '10001'.split(''),
-			lizard:   '00101'.split(''),
-			spock:    '11000'.split('')
-		}
-	});
 
-	app.constant('phrases',{
-		rock: {
-			scissors: 'rule.vs.RS',
-			lizard: 'rule.vs.RL'
-		},
-		scissors: {
-			paper : 'rule.vs.SP',
-			lizard: 'rule.vs.SL'
-		},
-		paper: {
-			rock: 'rule.vs.PR',
-			spock: 'rule.vs.PS'
-		},
-		lizard: {
-			paper: 'rule.vs.LP',
-			spock: 'rule.vs.LS'
-		},
-		spock: {
-			rock: 'rule.vs.SR',
-			scissors: 'rule.vs.SS'
-		}
-	});
-	app.run(['$rootScope', 'rules', 'phrases', function($rootScope, rules, phrases) {
+app.constant('version', '1.0.0')
+app.constant('rules',{
+	signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
+	wins : {
+		rock:     '01010'.split(''),
+		scissors: '00110'.split(''),
+		paper:    '10001'.split(''),
+		lizard:   '00101'.split(''),
+		spock:    '11000'.split('')
+	}
+});
+
+app.constant('phrases',{
+	rock: {
+		scissors: 'rule.vs.RS',
+		lizard: 'rule.vs.RL'
+	},
+	scissors: {
+		paper : 'rule.vs.SP',
+		lizard: 'rule.vs.SL'
+	},
+	paper: {
+		rock: 'rule.vs.PR',
+		spock: 'rule.vs.PS'
+	},
+	lizard: {
+		paper: 'rule.vs.LP',
+		spock: 'rule.vs.LS'
+	},
+	spock: {
+		rock: 'rule.vs.SR',
+		scissors: 'rule.vs.SS'
+	}
+});
+app.run(['$rootScope', 'rules', 'phrases',
+	function($rootScope, rules, phrases) {
 		$rootScope.rules = rules;
 		$rootScope.phrases = phrases;
 	}]);
-})(angular);
