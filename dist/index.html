@@ -27,14 +27,15 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid" ng-cloak>
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle">
+				<button type="button" class="navbar-toggle" ng-click="navOpen = !navOpen">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#/rules"><sign-rotator interval="3000"></sign-rotator></a>
-			</div><div class="collapse navbar-collapse">
+			</div>
+			<div class="collapse navbar-collapse" ng-class="{in: navOpen}">
 				<ul class="nav navbar-nav" nav>
 					<li><a href="#/rules">{{:: 'menu.rules' | translate }}</a></li>
 					<li><a href="#/game">{{:: 'menu.play' | translate }}</a></li>
