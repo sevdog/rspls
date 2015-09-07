@@ -23,7 +23,7 @@ angular.module('rspls')
 					scope.$watch(function() {
 						return $location.path();
 					}, function(newValue, oldValue) {
-						ng.forEach(element.find('a'), function(a, k) {
+						angular.forEach(element.find('a'), function(a, k) {
 							var $a = angular.element(a),
 								$li = $a.parent(),
 								pattern = $a.attr('href').replace('#', ''),

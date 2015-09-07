@@ -25,12 +25,16 @@ angular.module('rspls')
 				link: function(scope, element, attrs, controller) {
 					var signIdx = 0,
 						signs = $rootScope.rules.signs,
-						timeInterval = scope.timeInterval || 1000;
+						timeInterval = scope.timeInterval || 1000,
+						theInterval;
 					scope.sign = signs[signIdx];
-					$interval(function() {
+					theInterval = $interval(function() {
 						signIdx = (signIdx + 1) % signs.length;
 						scope.sign = signs[signIdx];
 					}, timeInterval);
+					scope.$on('$destroy', function() {
+						$interval.cancel(theInterval);
+					});
 				}
 			};
 		}]);
