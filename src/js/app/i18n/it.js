@@ -37,5 +37,6 @@ var MSG_IT = {
 	'game.pc': 'CPU',
 	'game.win': 'Vittorie',
 	'game.tie': 'Pareggi',
-	'game.lost': 'Sconfitte'
+	'game.lost': 'Sconfitte',
+	'version': 'versione'
 };

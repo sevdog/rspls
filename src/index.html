@@ -46,6 +46,10 @@
 		</div>
 	</nav>
 	<div class="container-fluid" ng-view></div>
+	<footer ng-controller="CopyRightController" class="text-right text-muted">
+		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
+		<i class="fa fa-copyright"></i> {{:: year }} {{ owner }}
+	</footer>
 	<script type="text/javascript" src="./js/assets/angular.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-aria.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-route.min.js"></script>
@@ -59,5 +63,6 @@
 	<script type="text/javascript" src="./js/app/directives/sign-rotator.js"></script>
 	<script type="text/javascript" src="./js/app/controllers/rules.js"></script>
 	<script type="text/javascript" src="./js/app/controllers/game.js"></script>
+	<script type="text/javascript" src="./js/app/controllers/copyright.js"></script>
 </body>
 </html>

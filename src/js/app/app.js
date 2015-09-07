@@ -30,7 +30,10 @@ app.config(['$routeProvider', '$translateProvider',
 			.fallbackLanguage('en');
 	}]);
 
-app.constant('version', '1.0.0')
+app.constant('version', '1.0.0');
+app.constant('crYearFrom', '2015');
+app.constant('crYearTo', '');
+app.constant('crOwner', 'sevdog');
 app.constant('rules',{
 	signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
 	wins : {

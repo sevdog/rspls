@@ -37,5 +37,6 @@ var MSG_EN = {
 	'game.pc': 'CPU',
 	'game.win': 'Wins',
 	'game.tie': 'Tie',
-	'game.lost': 'Lost'
+	'game.lost': 'Lost',
+	'version': 'version'
 };

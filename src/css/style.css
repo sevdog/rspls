@@ -70,6 +70,9 @@
 	-webkit-transition: all .4s ease-out;
 	transition: all .4s ease-out;
 }
+footer {
+	padding: 0 15px 15px;
+}
 @media (max-width: 767px){
 	.collapse.navbar-collapse.in {
 		height: 96px;
