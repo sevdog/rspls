@@ -13,9 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').controller('CopyRightController', ['$scope', 'version', 'crYearTo', 'crYearFrom', 'crOwner',
-	function($scope, version, crYearTo, crYearFrom, crOwner) {
-		$scope.version = version;
-		$scope.year = crYearFrom + (crYearTo ? '-' + crYearTo : '');
-		$scope.owner = crOwner;
-	}]);
+angular.module('rspls').controller('CopyRightController', ['$scope', 'version', 'crYearTo', 'crYearFrom', 'crOwner', function($scope, version, crYearTo, crYearFrom, crOwner) {
+	$scope.version = version;
+	$scope.year = crYearFrom + (crYearTo ? '-' + crYearTo : '');
+	$scope.owner = crOwner;
+}]);

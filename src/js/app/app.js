@@ -13,22 +13,20 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria',
-	'pascalprecht.translate']);
-app.config(['$routeProvider', '$translateProvider',
-	function($routeProvider, $translateProvider) {
-		$routeProvider.when('/rules', {
-			templateUrl: 'templates/rules.html',
-			controller: 'RulesController'
-		}).when('/game', {
-			templateUrl: 'templates/game.html',
-			controller: 'GameController'
-		}).otherwise({redirectTo: '/rules'});
-		$translateProvider.translations('it', MSG_IT)
-			.translations('en', MSG_EN)
-			.determinePreferredLanguage()
-			.fallbackLanguage('en');
-	}]);
+var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'pascalprecht.translate']);
+app.config(['$routeProvider', '$translateProvider', function($routeProvider, $translateProvider) {
+	$routeProvider.when('/rules', {
+		templateUrl: 'templates/rules.html',
+		controller: 'RulesController'
+	}).when('/game', {
+		templateUrl: 'templates/game.html',
+		controller: 'GameController'
+	}).otherwise({redirectTo: '/rules'});
+	$translateProvider.translations('it', MSG_IT)
+		.translations('en', MSG_EN)
+		.determinePreferredLanguage()
+		.fallbackLanguage('en');
+}]);
 
 app.constant('version', '1.0.0');
 app.constant('crYearFrom', '2015');
@@ -67,8 +65,7 @@ app.constant('phrases',{
 		scissors: 'rule.vs.SS'
 	}
 });
-app.run(['$rootScope', 'rules', 'phrases',
-	function($rootScope, rules, phrases) {
-		$rootScope.rules = rules;
-		$rootScope.phrases = phrases;
-	}]);
+app.run(['$rootScope', 'rules', 'phrases', function($rootScope, rules, phrases) {
+	$rootScope.rules = rules;
+	$rootScope.phrases = phrases;
+}]);

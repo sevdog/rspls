@@ -13,28 +13,26 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls')
-	.directive('signRotator', ['$interval', '$rootScope',
-		function($interval, $rootScope) {
-			return {
-				restrict: 'E',
-				scope: {
-					timeInterval: '=*interval'
-				},
-				template: '<i class="fa fa-fw fa-2x" ng-class="\'fa-hand-\' + sign + \'-o\'"></i>',
-				link: function(scope, element, attrs, controller) {
-					var signIdx = 0,
-						signs = $rootScope.rules.signs,
-						timeInterval = scope.timeInterval || 1000,
-						theInterval;
-					scope.sign = signs[signIdx];
-					theInterval = $interval(function() {
-						signIdx = (signIdx + 1) % signs.length;
-						scope.sign = signs[signIdx];
-					}, timeInterval);
-					scope.$on('$destroy', function() {
-						$interval.cancel(theInterval);
-					});
-				}
-			};
-		}]);
+angular.module('rspls').directive('signRotator', ['$interval', '$rootScope', function($interval, $rootScope) {
+	return {
+		restrict: 'E',
+		scope: {
+			timeInterval: '=*interval'
+		},
+		template: '<i class="fa fa-fw fa-2x" ng-class="\'fa-hand-\' + sign + \'-o\'"></i>',
+		link: function(scope, element, attrs, controller) {
+			var signIdx = 0,
+				signs = $rootScope.rules.signs,
+				timeInterval = scope.timeInterval || 1000,
+				theInterval;
+			scope.sign = signs[signIdx];
+			theInterval = $interval(function() {
+				signIdx = (signIdx + 1) % signs.length;
+				scope.sign = signs[signIdx];
+			}, timeInterval);
+			scope.$on('$destroy', function() {
+				$interval.cancel(theInterval);
+			});
+		}
+	};
+}]);
