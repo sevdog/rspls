@@ -15,10 +15,42 @@
  */
 angular.module('rspls').factory('score', [ function() {
 	//TODO add support for storage
-	var factory = {
-		play: 0,
-		tie: 0,
-		win: 0
+	var factory = {},
+		score = {
+			play: 0,
+			tie: 0,
+			win: 0
+	};
+	
+	// making game, win, tie and lost key readonly
+	Object.defineProperty(factory, 'game', {
+		get: function() {
+			return score.play;
+		}
+	});
+	Object.defineProperty(factory, 'win', {
+		get: function() {
+			return score.win;
+		}
+	});
+	Object.defineProperty(factory, 'tie', {
+		get: function() {
+			return score.tie;
+		}
+	});
+	Object.defineProperty(factory, 'lost', {
+		get: function() {
+			return score.play - score.win - score.tie;
+		}
+	});
+	factory.addGame = function(win, tie) {
+		// increase game counter
+		score.play++;
+		if (win) {
+			score.win++;
+		} else if (tie) {
+			score.tie++
+		}
 	};
 	return factory;
 }]);

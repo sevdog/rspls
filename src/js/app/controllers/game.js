@@ -36,7 +36,6 @@ angular.module('rspls').controller('GameController', ['$scope', '$timeout', '$in
 	$scope.chooseSign = function (sign) {
 		$interval.cancel(interval);
 		delete $scope.pcPos;
-		$scope.score.play++;
 		$scope.timing = false;
 		$scope.isPlaying = false;
 		$scope.choose = true;
@@ -45,14 +44,15 @@ angular.module('rspls').controller('GameController', ['$scope', '$timeout', '$in
 		$scope.pcSign = parseInt(Math.random() * rules.signs.length);
 		if ($scope.pcSign === rules.signs.indexOf(sign)) {
 			$scope.tie = true;
-			$scope.score.tie++;
+			score.addGame(false, true);
 			$scope.winningPhrase = $translate.instant('tie', {sign:$translate.instant(sign)});
 		} else {
 			$scope.playerWin = parseInt(rules.wins[sign][$scope.pcSign]);
 			if ($scope.playerWin) {
-				$scope.score.win++;
+				score.addGame(true);
 				$scope.winningPhrase = $scope.phrases[sign][rules.signs[$scope.pcSign]];
 			} else {
+				score.addGame();
 				$scope.winningPhrase = $scope.phrases[rules.signs[$scope.pcSign]][sign];
 			}
 		}
