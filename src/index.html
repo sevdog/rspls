@@ -39,12 +39,16 @@
 			</div>
 			<div class="collapse navbar-collapse" ng-class="{in: navOpen}">
 				<ul class="nav navbar-nav" nav>
-					<li><a href="#/rules">{{:: 'menu.rules' | translate }}</a></li>
 					<li><a href="#/game">{{:: 'menu.play' | translate }}</a></li>
+					<li><a href="#/rules">{{:: 'menu.rules' | translate }}</a></li>
+					<li><a href="" ng-click="showSideMenu = true">{{:: 'menu.settings' | translate }}</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
+	<aside class="menu-left" ng-show="showSideMenu">
+		TODO MAKE SOME MENU
+	</aside>
 	<div class="container-fluid" ng-view></div>
 	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
 		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
@@ -55,6 +59,7 @@
 	<script type="text/javascript" src="./js/assets/angular-route.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-touch.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular.animate.min.js"></script>
+	<script type="text/javascript" src="./js/assets/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-translate.min.js"></script>
 	<script type="text/javascript" src="./js/app/i18n/it.js"></script>
 	<script type="text/javascript" src="./js/app/i18n/en.js"></script>

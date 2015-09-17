@@ -19,6 +19,7 @@ var MSG_IT = {
 	paper: 'Carta',
 	lizard: 'Lizard',
 	spock: 'Spock',
+	'menu.settings': 'Impostazioni',
 	'menu.rules': 'Descrizione',
 	'menu.play': 'Gioca',
 	'rule.desc': 'Sasso-carta-forbice-lucertola-Spock (Rock-paper-scissors-lizard-Spock) è una variante fantasiosa della "Morra Cinese" inventata da due studenti americani, Sam Kass e Karen Bryla, e resa successivamente famosa da un episodio del telefilm The Big Bang Theory.',

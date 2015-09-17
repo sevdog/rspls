@@ -19,6 +19,7 @@ var MSG_EN = {
 	paper: 'Paper',
 	lizard: 'Lizard',
 	spock: 'Spock',
+	'menu.settings': 'Settings',
 	'menu.rules': 'Description',
 	'menu.play': 'Play',
 	'rule.desc': 'Rock-paper-scissors-lizard-Spock) è una variante fantasiosa inventata da due studenti americani, Sam Kass e Karen Bryla, e resa successivamente famosa da un episodio del telefilm The Big Bang Theory.',

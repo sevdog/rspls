@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'pascalprecht.translate']);
+var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'ngCookies', 'pascalprecht.translate']);
 app.config(['$routeProvider', '$translateProvider', function($routeProvider, $translateProvider) {
 	$routeProvider.when('/rules', {
 		templateUrl: 'templates/rules.html',
@@ -21,7 +21,7 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
 	}).when('/game', {
 		templateUrl: 'templates/game.html',
 		controller: 'GameController'
-	}).otherwise({redirectTo: '/rules'});
+	}).otherwise({redirectTo: '/game'});
 	$translateProvider.translations('it', MSG_IT)
 		.translations('en', MSG_EN)
 		.determinePreferredLanguage()
