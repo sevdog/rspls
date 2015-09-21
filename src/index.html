@@ -46,7 +46,8 @@
 			</div>
 		</div>
 	</nav>
-	<aside class="menu-left" ng-show="showSideMenu">
+	<aside class="menu-left" ng-show="showSideMenu" ng-cloak>
+		<button type="button" class="close" ng-click="showSideMenu = false">&times;</button>
 		TODO MAKE SOME MENU
 	</aside>
 	<div class="container-fluid" ng-view></div>

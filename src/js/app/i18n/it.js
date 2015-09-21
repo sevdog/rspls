@@ -39,5 +39,6 @@ var MSG_IT = {
 	'game.win': 'Vittorie',
 	'game.tie': 'Pareggi',
 	'game.lost': 'Sconfitte',
+	'game.play': 'Premi per giocare',
 	'version': 'versione'
 };

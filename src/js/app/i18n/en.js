@@ -22,7 +22,7 @@ var MSG_EN = {
 	'menu.settings': 'Settings',
 	'menu.rules': 'Description',
 	'menu.play': 'Play',
-	'rule.desc': 'Rock-paper-scissors-lizard-Spock) è una variante fantasiosa inventata da due studenti americani, Sam Kass e Karen Bryla, e resa successivamente famosa da un episodio del telefilm The Big Bang Theory.',
+	'rule.desc': 'Rock-paper-scissors-lizard-Spock) is a fancy variation of Rock-paper-scissors invented by two american students, Sam Kass and Karen Bryla, and later made popular being quoted in an episode of the sitcom The Big Bang Theory.',
 	'rule.vs.LS': 'Lizard poisons Spock',
 	'rule.vs.LP': 'Lizard eats Paper',
 	'rule.vs.PS': 'Paper disproves Spock',
@@ -39,5 +39,6 @@ var MSG_EN = {
 	'game.win': 'Wins',
 	'game.tie': 'Tie',
 	'game.lost': 'Lost',
+	'game.play': 'Press to play',
 	'version': 'version'
 };

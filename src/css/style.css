@@ -94,7 +94,14 @@ footer {
 	padding: 0 15px 15px;
 }
 @media (max-width: 767px){
+	.collapse.navbar-collapse {
+		position: absolute;
+		z-index: 500;
+		width: 100%;
+		background-color: #FAFAFA;
+		border-bottom: 1px solid #e7e7e7;
+	}
 	.collapse.navbar-collapse.in {
-		height: 96px;
+		height: 135px;
 	}
 }

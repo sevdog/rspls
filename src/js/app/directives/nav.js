@@ -26,6 +26,9 @@ angular.module('rspls') .directive('nav', ['$location', function($location) {
 						$li = $a.parent(),
 						pattern = $a.attr('href').replace('#', ''),
 						regexp = new RegExp('^' + pattern + '$', ['i']);
+					if (scope.navOpen) {
+						scope.navOpen = false;
+					}
 					if(regexp.test(newValue)) {
 						$li.addClass('active');
 					} else {
