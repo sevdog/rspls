@@ -21,6 +21,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
+		<p class="h4"><label class="label label-primary">{{:: 'game.pc' | translate }}</label></p>
 		<span class="btn btn-lg btn-warning pc-sign" ng-class="pcPos">
 			<h2>
 				<sign-rotator interval="5000" ng-hide="timing || choose"></sign-rotator>
@@ -35,6 +36,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
+		<p class="text-center h4"><label class="label label-primary">{{:: 'game.player' | translate }}</label></p>
 		<h2 class="btn-toolbar btn-toolbar-centered" role="toolbar">
 			<button type="button" class="btn btn-lg" ng-disabled="!isPlaying" ng-repeat="sign in rules.signs" ng-click="chooseSign(sign)"
 				ng-class="btnClass(sign)">
