@@ -13,13 +13,15 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').controller('SettingsController', ['$scope', '$route', 'settings', function($scope, $route, settings) {
-	$scope.settings = angular.copy(settings.values);
-	
-	
-	$scope.reload = function() {
-		//TODO add save action for settings
-		settings.values = $scope.settings;
-		$route.reload();
-	}
+angular.module('rspls').factory('settings', [ function() {
+	//TODO add support for storage
+	var factory = {
+		values: {
+			user: '',
+			theme: '',
+			algorithm: '',
+		}
+	};
+
+	return factory;
 }]);

@@ -13,9 +13,12 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').controller('GameController', ['$scope', '$timeout', '$interval', '$translate', 'score',  function($scope, $timeout, $interval, $translate, score) {
+angular.module('rspls').controller('GameController', 
+	['$scope', '$timeout', '$interval', '$translate', 'score', 'settings',
+	 function($scope, $timeout, $interval, $translate, score, settings) {
 	var interval,
 		startLeft = true;
+	$scope.username = settings.values.username;
 	$scope.isPlaying = false;
 	$scope.timing = false;
 	$scope.choose = false;

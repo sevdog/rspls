@@ -36,7 +36,7 @@
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-offset-3 col-sm-6">
-		<p class="text-center h4"><label class="label label-primary">{{:: 'game.player' | translate }}</label></p>
+		<p class="text-center h4"><label class="label label-primary">{{:: username ? username : ('game.player' | translate) }}</label></p>
 		<h2 class="btn-toolbar btn-toolbar-centered" role="toolbar">
 			<button type="button" class="btn btn-lg" ng-disabled="!isPlaying" ng-repeat="sign in rules.signs" ng-click="chooseSign(sign)"
 				ng-class="btnClass(sign)">
