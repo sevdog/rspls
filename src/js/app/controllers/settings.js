@@ -16,10 +16,16 @@
 angular.module('rspls').controller('SettingsController', ['$scope', '$route', 'settings', function($scope, $route, settings) {
 	$scope.settings = angular.copy(settings.values);
 	
+	$scope.reset = function() {
+		settings.defaults();
+		$scope.settings = angular.copy(settings.values);
+		$route.reload();
+		$scope.status.showSideMenu = false;
+	};
 	
 	$scope.reload = function() {
-		//TODO add save action for settings
-		settings.values = $scope.settings;
+		settings.store($scope.settings);
 		$route.reload();
-	}
+		$scope.status.showSideMenu = false;
+	};
 }]);

@@ -26,6 +26,8 @@
 }
 .btn-toolbar-centered .btn {
 	float: none;
+	display: inline-block;
+	margin-bottom: 5px;
 }
 .menu-left {
 	position: fixed;
@@ -46,7 +48,15 @@
 .menu-left.ng-hide {
 	left: -200px;
 }
-
+.menu-left-backdrop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 450;
+	background-color: transparent;
+}
 .game-msg {
 	position:fixed;
 	top: 0;

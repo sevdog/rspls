@@ -49,6 +49,7 @@
 	<aside class="menu-left" ng-show="status.showSideMenu" ng-cloak>
 		<ng-include src="'templates/settings.html'" ng-controller="SettingsController" />
 	</aside>
+	<div class="menu-left-backdrop" ng-show="status.showSideMenu" ng-click="status.showSideMenu = false" ng-cloak tabindex="-1" role="backdrop"></div>
 	<div class="container-fluid" ng-view></div>
 	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
 		<h5>{{:: 'version' | translate }} {{:: version }}</h5>

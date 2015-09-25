@@ -15,7 +15,7 @@
 -->
 <button type="button" class="close" ng-click="status.showSideMenu = false">&times;</button>
 <p class="text-info">{{:: 'settings.description' | translate }}</p>
-<form>
+<form ng-submit="reload()">
 	<div class="form-group">
 		<label>{{:: 'settings.username' | translate }}</label>
 		<input class="form-control" type="text" ng-model="settings.username">
@@ -28,5 +28,8 @@
 		<label>{{:: 'settings.algorithm' | translate }}</label>
 		<input class="form-control" type="text" ng-model="settings.algorithm">
 	</div>
+	<div class="btn-toolbar btn-toolbar-centered">
+		<button type="submit" class="btn btn-primary">{{:: 'settings.save' | translate }}</button>
+		<button type="reset" class="btn btn-default" ng-click="reset()">{{:: 'settings.reset' | translate }}</button>
+	</div>
 </form>
-<button type="button" class="btn btn-primary" ng-click="reload()">{{:: 'settings.save' | translate }}</button>
