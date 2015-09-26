@@ -33,6 +33,7 @@ app.constant('crYearFrom', '2015');
 app.constant('crYearTo', '');
 app.constant('crOwner', 'sevdog');
 app.constant('rules',{
+	classics: ['rock', 'scissors', 'paper'],
 	signs: ['rock', 'scissors', 'paper', 'lizard', 'spock'],
 	wins : {
 		rock:     '01010'.split(''),

@@ -13,31 +13,16 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('settings', [ function() {
-	// default values for settings
-	var defaults = {
-		user: '',
-		theme: '',
-		algorithm: '',
-		onlyClassic: false
-	};
-
+angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, rules) {
 	return {
-		values: angular.copy(defaults),
-		/**
-		 * Stores new values in settings.
-		 * @param values the new values to store in settings 
-		 */
-		store: function(values) {
-			this.values = angular.merge({}, values);
-			//TODO store data
-		},
-		/**
-		 * Restores defaults values.
-		 */
-		defaults: function() {
-			// restore defaults values
-			this.store(defaults);
+		choose: function() {
+			//TODO add algorithm choosing
+			var signs = settings.values.onlyClassic ? rules.classics : rules.signs,
+				pcSign = parseInt(Math.random() * signs.length);
+			return {
+				idx: pcSign,
+				sign: signs[pcSign]
+			};
 		}
 	};
 }]);

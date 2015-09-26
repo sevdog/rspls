@@ -24,6 +24,7 @@ var MSG_IT = {
 	'menu.play': 'Gioca',
 	'settings.description': 'Personalizza le impostazioni di gioco',
 	'settings.username': 'Nome giocatore',
+	'settings.onlyClassic': 'Solo segni classici',
 	'settings.theme': 'Tema',
 	'settings.algorithm': 'Strategia CPU',
 	'settings.save': 'Salva',

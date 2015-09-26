@@ -13,19 +13,21 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').directive('signRotator', ['$interval', '$rootScope', function($interval, $rootScope) {
+angular.module('rspls').directive('signRotator', ['$interval', 'rules', function($interval, rules) {
 	return {
 		restrict: 'E',
 		scope: {
-			timeInterval: '=*interval'
+			timeInterval: '=*interval',
+			onlyClassic: '=*'
 		},
 		template: '<i class="fa fa-fw fa-2x" ng-class="\'fa-hand-\' + sign + \'-o\'"></i>',
 		link: function(scope, element, attrs, controller) {
 			var signIdx = 0,
-				signs = $rootScope.rules.signs,
+				signs = scope.onlyClassic ? rules.classics : rules.signs,
 				timeInterval = scope.timeInterval || 1000,
 				theInterval;
 			scope.sign = signs[signIdx];
+			
 			theInterval = $interval(function() {
 				signIdx = (signIdx + 1) % signs.length;
 				scope.sign = signs[signIdx];

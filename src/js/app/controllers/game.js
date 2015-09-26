@@ -14,10 +14,12 @@
    limitations under the License.
  */
 angular.module('rspls').controller('GameController', 
-	['$scope', '$timeout', '$interval', '$translate', 'score', 'settings',
-	 function($scope, $timeout, $interval, $translate, score, settings) {
+	['$scope', '$timeout', '$interval', '$translate', 'score', 'settings', 'cpu',
+	 function($scope, $timeout, $interval, $translate, score, settings, cpu) {
 	var interval,
 		startLeft = true;
+	$scope.onlyClassic = settings.values.onlyClassic;
+	$scope.signs = $scope.onlyClassic ? $scope.rules.classics : $scope.rules.signs;
 	$scope.username = settings.values.username;
 	$scope.isPlaying = false;
 	$scope.timing = false;
@@ -44,19 +46,19 @@ angular.module('rspls').controller('GameController',
 		$scope.choose = true;
 		var rules = $scope.rules;
 		$scope.choosedSign = sign;
-		$scope.pcSign = parseInt(Math.random() * rules.signs.length);
-		if ($scope.pcSign === rules.signs.indexOf(sign)) {
+		$scope.pcSign = cpu.choose();
+		if ($scope.pcSign.sign === sign) {
 			$scope.tie = true;
 			score.addGame(false, true);
 			$scope.winningPhrase = $translate.instant('tie', {sign:$translate.instant(sign)});
 		} else {
-			$scope.playerWin = parseInt(rules.wins[sign][$scope.pcSign]);
+			$scope.playerWin = parseInt(rules.wins[sign][$scope.pcSign.idx]);
 			if ($scope.playerWin) {
 				score.addGame(true);
-				$scope.winningPhrase = $scope.phrases[sign][rules.signs[$scope.pcSign]];
+				$scope.winningPhrase = $scope.phrases[sign][$scope.pcSign.sign];
 			} else {
 				score.addGame();
-				$scope.winningPhrase = $scope.phrases[rules.signs[$scope.pcSign]][sign];
+				$scope.winningPhrase = $scope.phrases[$scope.pcSign.sign][sign];
 			}
 		}
 		$timeout(function() {
