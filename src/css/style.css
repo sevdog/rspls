@@ -100,6 +100,20 @@
 	-webkit-transition: all .4s ease-out;
 	transition: all .4s ease-out;
 }
+[ng-view] {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+}
+[ng-view].ng-enter,
+[ng-view].ng-leave.ng-leave-active {
+	opacity: 0;
+	visibility: hidden;
+}
+[ng-view].ng-enter {
+	z-index: 100;
+}
 footer {
 	padding: 0 15px 15px;
 }
