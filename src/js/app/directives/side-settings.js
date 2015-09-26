@@ -13,19 +13,13 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').controller('SettingsController', ['$scope', '$route', 'settings', function($scope, $route, settings) {
-	$scope.settings = angular.copy(settings.values);
-	
-	$scope.reset = function() {
-		settings.defaults();
-		$scope.settings = angular.copy(settings.values);
-		$route.reload();
-		$scope.visible = false;
-	};
-	
-	$scope.reload = function() {
-		settings.store($scope.settings);
-		$route.reload();
-		$scope.visible = false;
+angular.module('rspls') .directive('sideSettings', ['$location', function($location) {
+	return {
+		restrict: 'E',
+		scope: {
+			visible: '='
+		},
+		templateUrl: 'templates/settings.html',
+		controller: 'SettingsController'
 	};
 }]);

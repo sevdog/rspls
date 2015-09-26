@@ -46,10 +46,7 @@
 			</div>
 		</div>
 	</nav>
-	<aside class="menu-left" ng-show="status.showSideMenu" ng-cloak>
-		<ng-include src="'templates/settings.html'" ng-controller="SettingsController" />
-	</aside>
-	<div class="menu-left-backdrop" ng-show="status.showSideMenu" ng-click="status.showSideMenu = false" ng-cloak tabindex="-1" role="backdrop"></div>
+	<side-settings visible="status.showSideMenu" ng-cloak></side-settings>
 	<div class="container-fluid" ng-view></div>
 	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
 		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
@@ -67,6 +64,7 @@
 	<script type="text/javascript" src="./js/app/app.js"></script>
 	<script type="text/javascript" src="./js/app/directives/nav.js"></script>
 	<script type="text/javascript" src="./js/app/directives/sign-rotator.js"></script>
+	<script type="text/javascript" src="./js/app/directives/side-settings.js"></script>
 	<script type="text/javascript" src="./js/app/services/score.js"></script>
 	<script type="text/javascript" src="./js/app/services/settings.js"></script>
 	<script type="text/javascript" src="./js/app/services/cpu.js"></script>

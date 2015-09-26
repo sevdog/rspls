@@ -13,26 +13,29 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<button type="button" class="close" ng-click="status.showSideMenu = false">&times;</button>
-<p class="text-info">{{:: 'settings.description' | translate }}</p>
-<form ng-submit="reload()">
-	<div class="form-group">
-		<label for="settings-username">{{:: 'settings.username' | translate }}</label>
-		<input id="setting-username" class="form-control" type="text" ng-model="settings.username">
-	</div>
-	<div class="form-group">
-		<label for="settings-theme">{{:: 'settings.theme' | translate }}</label>
-		<input id="settings-theme" class="form-control" type="text" ng-model="settings.theme">
-	</div>
-	<div class="form-group">
-		<label for="settings-algorithm">{{:: 'settings.algorithm' | translate }}</label>
-		<input id="settings-algorithm" class="form-control" type="text" ng-model="settings.algorithm">
-	</div>
-	<div class="form-group checkbox-inline">
-		<label class="checkbox"><input type="checkbox" ng-model="settings.onlyClassic">{{:: 'settings.onlyClassic' | translate }}</label>
-	</div>
-	<div class="btn-toolbar btn-toolbar-centered">
-		<button type="submit" class="btn btn-primary">{{:: 'settings.save' | translate }}</button>
-		<button type="reset" class="btn btn-default" ng-click="reset()">{{:: 'settings.reset' | translate }}</button>
-	</div>
-</form>
+<aside class="menu-left" ng-show="visible">
+	<button type="button" class="close" ng-click="visible = false">&times;</button>
+	<p class="text-info">{{:: 'settings.description' | translate }}</p>
+	<form ng-submit="reload()">
+		<div class="form-group">
+			<label for="settings-username">{{:: 'settings.username' | translate }}</label>
+			<input id="setting-username" class="form-control" type="text" ng-model="settings.username">
+		</div>
+		<div class="form-group">
+			<label for="settings-theme">{{:: 'settings.theme' | translate }}</label>
+			<input id="settings-theme" class="form-control" type="text" ng-model="settings.theme">
+		</div>
+		<div class="form-group">
+			<label for="settings-algorithm">{{:: 'settings.algorithm' | translate }}</label>
+			<input id="settings-algorithm" class="form-control" type="text" ng-model="settings.algorithm">
+		</div>
+		<div class="form-group checkbox-inline">
+			<label class="checkbox"><input type="checkbox" ng-model="settings.onlyClassic">{{:: 'settings.onlyClassic' | translate }}</label>
+		</div>
+		<div class="btn-toolbar btn-toolbar-centered">
+			<button type="submit" class="btn btn-primary">{{:: 'settings.save' | translate }}</button>
+			<button type="reset" class="btn btn-default" ng-click="reset()">{{:: 'settings.reset' | translate }}</button>
+		</div>
+	</form>
+</aside>
+<div class="menu-left-backdrop" ng-show="visible" ng-click="visible = false" ng-cloak tabindex="-1" role="backdrop"></div>
