@@ -24,6 +24,27 @@ angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, 
 				if (this.moves.length >= CACHE_MAX_SIZE) {
 					this.moves.shift();
 				}
+			},
+			mostUsed: function(signs) {
+				var frequencies =  this.moves.reduce(function(prev, actual) {
+						// count only used signs
+						if (signs.indexOf(actual) >= 0) {
+							// update count
+							prev[actual] = prev[actual] ? prev[actual] + 1 : 1;
+						}
+						return prev;
+					}, {}),
+					max = {
+						sign: '',
+						count: 0
+					};
+				for (var sign in frequencies) {
+					if (frequencies[sign] > max.count) {
+						max.count = frequencies[sign];
+						max.sign = sign;
+					}
+				}
+				return max;
 			}
 		};
 	
@@ -32,7 +53,25 @@ angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, 
 		case 'memoryAdvanced':
 			//TODO implement, for now fallback to memory
 		case 'memory':
-			//TODO implement, for now fallback in random
+			// will try to select the sign that wins over the player most used sign
+			var mostUsed = movesCache.mostUsed(signs);
+			// make pondered choice only if there are data
+			if (mostUsed.count > 0) {
+				var signWins = rules.wins[mostUsed.sign].slice(0, signs.length),
+					signIdx = signs.indexOf(mostUsed.sign);
+				// put sign wins on sign idx
+				signWins[signIdx] = 1;
+				// filter array to get only signs which wins against it
+				signWins = signWins.reduce(function(prev, actual, idx) {
+					if (actual == 0) {
+						prev.push(signs[idx])
+					}
+					return prev;
+				}, []);
+				// return a random element of the winning ones
+				return signs.indexOf(signWins[parseInt(Math.random() * signWins.length)]);
+			}
+			// if CPU is without any data fallback to random
 		case 'random':
 		default:
 			return parseInt(Math.random() * signs.length);
