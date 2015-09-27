@@ -27,7 +27,9 @@
 		</div>
 		<div class="form-group">
 			<label for="settings-algorithm">{{:: 'settings.algorithm' | translate }}</label>
-			<input id="settings-algorithm" class="form-control" type="text" ng-model="settings.algorithm">
+			<select id="settings-algorithm" class="form-control"  ng-model="settings.algorithm">
+				<option ng-repeat="algorithm in ::algorithms" value="{{:: algorithm.key }}">{{:: algorithm.name | translate }}</option>
+			</select>
 		</div>
 		<div class="form-group checkbox-inline">
 			<label class="checkbox"><input type="checkbox" ng-model="settings.onlyClassic">{{:: 'settings.onlyClassic' | translate }}</label>

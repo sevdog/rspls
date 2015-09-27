@@ -13,8 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').controller('SettingsController', ['$scope', '$route', 'settings', function($scope, $route, settings) {
+angular.module('rspls').controller('SettingsController', ['$scope', '$route', 'settings', 'algorithms', 
+	function($scope, $route, settings, algorithms) {
 	$scope.settings = angular.copy(settings.values);
+	$scope.algorithms = algorithms;
 	
 	$scope.reset = function() {
 		settings.defaults();

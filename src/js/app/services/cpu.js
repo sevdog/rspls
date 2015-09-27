@@ -26,14 +26,26 @@ angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, 
 				}
 			}
 		};
+	
+	function choosingAlgotithm(algorithmKey, signs) {
+		switch(algorithmKey) {
+		case 'memoryAdvanced':
+			//TODO implement, for now fallback to memory
+		case 'memory':
+			//TODO implement, for now fallback in random
+		case 'random':
+		default:
+			return parseInt(Math.random() * signs.length);
+		}
+	}
+	
 	return {
 		/**
 		 * Perform CPU sign choose based on current algorithm
 		 */
 		choose: function() {
-			//TODO add algorithm choosing
 			var signs = settings.values.onlyClassic ? rules.classics : rules.signs,
-				pcSign = parseInt(Math.random() * signs.length);
+				pcSign = choosingAlgotithm(settings.values.algorithm, signs);
 			return {
 				idx: pcSign,
 				sign: signs[pcSign]
@@ -44,7 +56,6 @@ angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, 
 		 */
 		rememberMove: function(sign) {
 			movesCache.push(sign);
-			console.log(movesCache.moves);
 		}
 	};
 }]);

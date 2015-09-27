@@ -66,6 +66,16 @@ app.constant('phrases',{
 		scissors: 'rule.vs.SS'
 	}
 });
+app.constant('algorithms',[{
+		key: 'random',
+		name: 'algorithm.random'
+	}, {
+		key: 'memory',
+		name: 'algorithm.memory'
+	}, {
+		key: 'memoryAdvanced',
+		name: 'algorithm.memoryAdvanced'
+	}]);
 app.run(['$rootScope', 'rules', 'phrases', function($rootScope, rules, phrases) {
 	$rootScope.rules = rules;
 	$rootScope.phrases = phrases;

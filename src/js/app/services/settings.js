@@ -18,7 +18,7 @@ angular.module('rspls').factory('settings', [ function() {
 	var defaults = {
 		user: '',
 		theme: '',
-		algorithm: '',
+		algorithm: 'random',
 		onlyClassic: false
 	};
 
