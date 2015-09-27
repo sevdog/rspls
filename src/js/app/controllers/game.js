@@ -46,7 +46,9 @@ angular.module('rspls').controller('GameController',
 		$scope.choose = true;
 		var rules = $scope.rules;
 		$scope.choosedSign = sign;
+		// make cpu play
 		$scope.pcSign = cpu.choose();
+		// determinate the winner
 		if ($scope.pcSign.sign === sign) {
 			$scope.tie = true;
 			score.addGame(false, true);
@@ -61,6 +63,8 @@ angular.module('rspls').controller('GameController',
 				$scope.winningPhrase = $scope.phrases[$scope.pcSign.sign][sign];
 			}
 		}
+		// make CPU learn
+		cpu.rememberMove(sign);
 		$timeout(function() {
 			$scope.showMsg = true;
 			$timeout(function() {

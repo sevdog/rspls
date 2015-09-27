@@ -14,7 +14,22 @@
    limitations under the License.
  */
 angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, rules) {
+	//TODO add support for storage
+	var CACHE_MAX_SIZE = 100;
+		movesCache = {
+			moves: [],
+			push: function(move) {
+				this.moves.push(move);
+				// work like a LRU cache if exeed max size
+				if (this.moves.length >= CACHE_MAX_SIZE) {
+					this.moves.shift();
+				}
+			}
+		};
 	return {
+		/**
+		 * Perform CPU sign choose based on current algorithm
+		 */
 		choose: function() {
 			//TODO add algorithm choosing
 			var signs = settings.values.onlyClassic ? rules.classics : rules.signs,
@@ -23,6 +38,13 @@ angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, 
 				idx: pcSign,
 				sign: signs[pcSign]
 			};
+		},
+		/**
+		 * Add the selected moves in the CPU memory
+		 */
+		rememberMove: function(sign) {
+			movesCache.push(sign);
+			console.log(movesCache.moves);
 		}
 	};
 }]);
