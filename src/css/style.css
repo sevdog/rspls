@@ -103,8 +103,8 @@
 [ng-view] {
 	visibility: visible;
 	opacity: 1;
-	-webkit-transition: all .2s ease-in;
-	transition: all .2s ease-in;
+	-webkit-transition: visibility .2s ease-in, opacity .2s ease-in, left .3s ease-in;
+	transition: visibility .2s ease-in, opacity .2s ease-in, left .3s ease-in;
 }
 [ng-view].ng-enter,
 [ng-view].ng-leave.ng-leave-active {
@@ -113,6 +113,19 @@
 }
 [ng-view].ng-enter {
 	z-index: 100;
+}
+[ng-view].ng-leave {
+	position: absolute;
+	top: 72px;
+	left:0;
+	width: 100%;
+	z-index: 1;
+}
+[ng-view].game.ng-leave.ng-leave-active {
+	left: -50%;
+}
+[ng-view].rules.ng-leave.ng-leave-active {
+	left: 50%;
 }
 footer {
 	padding: 0 15px 15px;

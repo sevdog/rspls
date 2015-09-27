@@ -18,6 +18,7 @@ angular.module('rspls').controller('GameController',
 	 function($scope, $timeout, $interval, $translate, score, settings, cpu) {
 	var interval,
 		startLeft = true;
+	$scope.viewCls = 'game';
 	$scope.onlyClassic = settings.values.onlyClassic;
 	$scope.signs = $scope.onlyClassic ? $scope.rules.classics : $scope.rules.signs;
 	$scope.username = settings.values.username;

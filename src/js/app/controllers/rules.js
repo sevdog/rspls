@@ -14,6 +14,7 @@
    limitations under the License.
  */
 angular.module('rspls').controller('RulesController', ['$scope', function($scope) {
+	$scope.viewCls = 'rules';
 	$scope.winMatch = function(sign) {
 		var wins = $scope.rules.wins[sign];
 		return function (value, index, array){

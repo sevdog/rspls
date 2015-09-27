@@ -47,7 +47,7 @@
 		</div>
 	</nav>
 	<side-settings visible="status.showSideMenu" ng-cloak></side-settings>
-	<div class="container-fluid" ng-view></div>
+	<div class="container-fluid" ng-view ng-class="viewCls"></div>
 	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
 		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
 		<i class="fa fa-copyright"></i> {{:: year }} {{ owner }}
