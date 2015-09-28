@@ -1,6 +1,6 @@
 {
   "name": "rspls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Rock-Scissors-Paper-Lizard-Spock Angular app",
   "main": "app.js",
   "repository": {
@@ -20,5 +20,15 @@
 	"grunt-contrib-copy": "~0.8.1",
 	"grunt-angular-templates": "~0.5.7",
 	"grunt-replace": "~0.10.2"
+  },
+  "dependencies": {
+	"angular": "~1.4.4",
+	"angular-route": "~1.4.4",
+	"angular-route": "~1.4.4",
+	"angular-animate": "~1.4.4",
+	"angular-touch": "~1.4.4",
+	"angular-aria": "~1.4.4",
+	"angular-cookies": "~1.4.4",
+	"angular-translate": "~2.7.2"
   }
 }

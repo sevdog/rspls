@@ -28,7 +28,7 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
 		.fallbackLanguage('en');
 }]);
 
-app.constant('version', '1.0.0');
+app.constant('version', '1.0.1');
 app.constant('crYearFrom', '2015');
 app.constant('crYearTo', '');
 app.constant('crOwner', 'sevdog');

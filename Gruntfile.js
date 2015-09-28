@@ -27,7 +27,8 @@ module.exports = function(grunt) {
 						+ ' * limitations under the License. \n */\n'
 				},
 				src: ['src/js/app/i18n/*.js', 'src/js/app/app.js', 'src/js/app/controllers/*.js',
-				      'src/js/app/directives/*.js', 'src/js/app/templates/<%= pkg.name %>.js'],
+				      'src/js/app/services/*.js', 'src/js/app/directives/*.js', 
+				      'src/js/app/templates/<%= pkg.name %>.js'],
 				dest: 'dist/js/<%= pkg.name %>.js'
 			},
 			pack: {
