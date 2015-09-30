@@ -25,7 +25,6 @@ angular.module('rspls').controller('GameController',
 	$scope.isPlaying = false;
 	$scope.timing = false;
 	$scope.choose = false;
-	$scope.score = score;
 	$scope.play = function() {
 		$scope.isPlaying = true;
 		$scope.timing = true;

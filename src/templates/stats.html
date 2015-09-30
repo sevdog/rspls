@@ -1,0 +1,36 @@
+<!-- 
+  Copyright 2015 sevdog
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!-- TODO -->
+<div class="row" style="margin-top:30px">
+	<div class="col-xs-12 col-sm-offset-4 col-sm-4">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>{{:: 'game.win' | translate }}</th>
+					<th>{{:: 'game.tie' | translate }}</th>
+					<th>{{:: 'game.lost' | translate }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="text-center">{{ score.win }}</td>
+					<td class="text-center">{{ score.tie }}</td>
+					<td class="text-center">{{ score.lost }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

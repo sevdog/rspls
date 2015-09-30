@@ -43,6 +43,12 @@ angular.module('rspls').factory('score', [ function() {
 			return score.play - score.win - score.tie;
 		}
 	});
+	// situation tell if player is winning ( > 0 ), losing ( < 0 ) or tieing ( = 0)
+	Object.defineProperty(factory, 'situation', {
+		get: function() {
+			return 2 * score.win - score.play + score.tie;
+		}
+	});
 	factory.addGame = function(win, tie) {
 		// increase game counter
 		score.play++;
