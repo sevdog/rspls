@@ -86,6 +86,17 @@ module.exports = function(grunt) {
 					src: 'dist/css/assets.css',
 					dest: 'dist/css/assets.css'
 			}
+		},
+		jasmine: {
+			src: ['src/js/app/i18n/*.js', 'src/js/app/app.js', 'src/js/app/controllers/*.js',
+			      'src/js/app/services/*.js', 'src/js/app/directives/*.js', 
+			      'src/js/app/templates/<%= pkg.name %>.js'],
+			options: {
+				vendor: ['src/js/assets/angular.min.js', 'src/js/assets/*.js'],
+				helpers: 'test/angular-mock.js',
+				specs: ['!test/angular-mock.js', 'test/*.js'],
+				summary: true
+			}
 		}
 	});
 	
@@ -94,8 +105,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-replace');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 
 	grunt.registerTask('dist', ['ngtemplates', 'uglify:dist', 'cssmin:dist']);
 	grunt.registerTask('pack', ['uglify:pack', 'copy', 'cssmin:pack', 'replace']);
+	grunt.registerTask('test', ['jasmine']);
 
 };
