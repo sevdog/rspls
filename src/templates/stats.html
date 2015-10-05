@@ -13,24 +13,26 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<!-- TODO -->
-<div class="row" style="margin-top:30px">
-	<div class="col-xs-12 col-sm-offset-4 col-sm-4">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>{{:: 'game.win' | translate }}</th>
-					<th>{{:: 'game.tie' | translate }}</th>
-					<th>{{:: 'game.lost' | translate }}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="text-center">{{ score.win }}</td>
-					<td class="text-center">{{ score.tie }}</td>
-					<td class="text-center">{{ score.lost }}</td>
-				</tr>
-			</tbody>
-		</table>
+<div class="stat-wrapper">
+	<button type="button" class="btn btn-info btn-lg btn-round" ng-click="display = !display" ng-hide="display"><i class="fa fa-pie-chart"></i></button>
+	<div class="row" ng-show="display">
+		<div class="col-xs-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>{{:: 'game.win' | translate }}</th>
+						<th>{{:: 'game.tie' | translate }}</th>
+						<th>{{:: 'game.lost' | translate }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="text-center">{{ score.win }}</td>
+						<td class="text-center">{{ score.tie }}</td>
+						<td class="text-center">{{ score.lost }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>

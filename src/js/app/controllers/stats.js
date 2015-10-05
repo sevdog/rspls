@@ -16,5 +16,5 @@
 angular.module('rspls').controller('StatsController', 
 	['$scope', '$timeout', 'score',
 	 function($scope, $timeout, score) {
-	//TODO
+	$scope.score = score;
 }]);

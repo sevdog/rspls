@@ -17,7 +17,7 @@ angular.module('rspls') .directive('stats', ['score', function(score) {
 	return {
 		restrict: 'E',
 		scope: {
-			forceDisplay: '*='
+			display: '='
 		},
 		templateUrl: 'templates/stats.html',
 		controller: 'StatsController'

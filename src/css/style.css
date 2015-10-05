@@ -100,6 +100,14 @@
 	-webkit-transition: all .4s ease-out;
 	transition: all .4s ease-out;
 }
+.stat-wrapper {
+	position: absolute;
+	z-index: 100;
+	right: 30px;
+}
+.btn-round.btn-lg {
+	border-radius: 55px;
+}
 [ng-view] {
 	visibility: visible;
 	opacity: 1;
@@ -140,5 +148,8 @@ footer {
 	}
 	.collapse.navbar-collapse.in {
 		height: 135px;
+	}
+	.stat-wrapper {
+		right: 15px;
 	}
 }
