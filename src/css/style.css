@@ -105,6 +105,22 @@
 	z-index: 100;
 	right: 30px;
 }
+.stat {
+	position: absolute;
+	top:0;
+	right: 0;
+	-webkit-transition: all .4s ease-in;
+	transition: all .4s ease-in;
+	width: 200px;
+	height: 140px;
+}
+.stat.ng-hide {
+	height: 0;
+	width: 0;
+}
+.stat .progress:last-child {
+	margin-bottom: 0;
+}
 .btn-round.btn-lg {
 	border-radius: 55px;
 }
@@ -151,5 +167,9 @@ footer {
 	}
 	.stat-wrapper {
 		right: 15px;
+	}
+	
+	.stat {
+		width: 150px;
 	}
 }

@@ -16,5 +16,7 @@
 angular.module('rspls').controller('StatsController', 
 	['$scope', '$timeout', 'score',
 	 function($scope, $timeout, score) {
-	$scope.score = score;
+	$scope.pct = function(prop) {
+		return score[prop] / score.game * 100;
+	}
 }]);

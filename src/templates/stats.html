@@ -14,25 +14,24 @@
   limitations under the License.
 -->
 <div class="stat-wrapper">
-	<button type="button" class="btn btn-info btn-lg btn-round" ng-click="display = !display" ng-hide="display"><i class="fa fa-pie-chart"></i></button>
-	<div class="row" ng-show="display">
-		<div class="col-xs-12">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>{{:: 'game.win' | translate }}</th>
-						<th>{{:: 'game.tie' | translate }}</th>
-						<th>{{:: 'game.lost' | translate }}</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="text-center">{{ score.win }}</td>
-						<td class="text-center">{{ score.tie }}</td>
-						<td class="text-center">{{ score.lost }}</td>
-					</tr>
-				</tbody>
-			</table>
+	<button type="button" class="btn btn-info btn-lg btn-round" ng-click="display = true" ng-hide="display">
+		<i class="fa fa-tasks"></i>
+	</button>
+	<div class="stat well" ng-show="display" ng-click="display = false" >
+		<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" ng-style="{width: pct('win') + '%'}">
+				{{:: 'game.win' | translate }}
+			</div>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-warning" role="progressbar" ng-style="{width: pct('tie') + '%'}">
+				{{:: 'game.tie' | translate }}
+			</div>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-danger" role="progressbar" ng-style="{width: pct('lost') + '%'}">
+				{{:: 'game.lost' | translate }}
+			</div>
 		</div>
 	</div>
 </div>
