@@ -17,6 +17,12 @@ angular.module('rspls').controller('StatsController',
 	['$scope', '$timeout', 'score',
 	 function($scope, $timeout, score) {
 	$scope.pct = function(prop) {
-		return score[prop] / score.game * 100;
+		if (!score.game) {
+			// if there are no games retuno 0
+			return 0;
+		}
+		// it will return the pct relative to max value of stats
+		var max = Math.max(score.win, score.lost, score.tie);
+		return score[prop] / max * 100;
 	}
 }]);
