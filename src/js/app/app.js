@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'ngCookies', 'pascalprecht.translate']);
+var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'pascalprecht.translate']);
 app.config(['$routeProvider', '$translateProvider', function($routeProvider, $translateProvider) {
 	$routeProvider.when('/rules', {
 		templateUrl: 'templates/rules.html',
