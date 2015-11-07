@@ -5,7 +5,7 @@ A Rock-Scissors-Paper-Lizard-Spock Angular app
 
 # Requirements
 JS:
-- Angular 1.4.4
+- Angular 1.4.7
 - Angular Translate 2.7.2
 
 CSS:
