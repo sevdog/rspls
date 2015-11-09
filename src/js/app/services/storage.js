@@ -13,31 +13,24 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('settings', ['storage', function(storage) {
-	// default values for settings
-	var defaults = {
-		user: '',
-		theme: '',
-		algorithm: 'random',
-		onlyClassic: false
+angular.module('rspls').factory('storage', ['localStorageService', function(localStorageService) {
+	var factory = {};
+	factory.get = function(key, dft) {
+		var toReturn = dft;
+		if (localStorageService.isSupported) {
+			// if is supported return the key if present
+			// otherwise return default
+			toReturn = localStorageService.get(key) || dft;
+		}
+		return toReturn;
 	};
-
-	return {
-		values: angular.copy(defaults),
-		/**
-		 * Stores new values in settings.
-		 * @param values the new values to store in settings 
-		 */
-		store: function(values) {
-			this.values = angular.merge({}, values);
-			//TODO store data
-		},
-		/**
-		 * Restores defaults values.
-		 */
-		defaults: function() {
-			// restore defaults values
-			this.store(defaults);
+	
+	factory.set = function(key, value) {
+		if (localStorageService.isSupported) {
+			// if is supported return the key if present
+			// otherwise return default
+			localStorageService.set(key, value) || dft;
 		}
 	};
+	return factory;
 }]);

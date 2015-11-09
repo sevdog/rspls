@@ -13,14 +13,14 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('score', [ function() {
-	//TODO add support for storage
+angular.module('rspls').factory('score', ['storage', function(storage) {
 	var factory = {},
 		score = {
 			play: 0,
 			tie: 0,
 			win: 0
 	};
+	//TODO use storage
 	
 	// making game, win, tie and lost key readonly
 	Object.defineProperty(factory, 'game', {

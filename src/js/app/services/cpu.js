@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('cpu', ['settings', 'rules', function(settings, rules) {
+angular.module('rspls').factory('cpu', ['settings', 'rules', 'storage', function(settings, rules, storage) {
 	//TODO add support for storage
 	var CACHE_MAX_SIZE = 100;
 		movesCache = {
