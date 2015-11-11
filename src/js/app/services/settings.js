@@ -13,24 +13,27 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('settings', [ function() {
+angular.module('rspls').factory('settings', ['storage', function(storage) {
 	// default values for settings
 	var defaults = {
-		user: '',
-		theme: '',
-		algorithm: 'random',
-		onlyClassic: false
-	};
+			user: '',
+			theme: '',
+			algorithm: 'random',
+			onlyClassic: false
+		},
+		// get used settings or default
+		used = storage.get('settings', defaults);
 
 	return {
-		values: angular.copy(defaults),
+		values: angular.copy(used),
 		/**
 		 * Stores new values in settings.
 		 * @param values the new values to store in settings 
 		 */
 		store: function(values) {
 			this.values = angular.merge({}, values);
-			//TODO store data
+			// store settings
+			storage.set('settings', this.values);
 		},
 		/**
 		 * Restores defaults values.

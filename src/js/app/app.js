@@ -13,8 +13,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'pascalprecht.translate']);
-app.config(['$routeProvider', '$translateProvider', function($routeProvider, $translateProvider) {
+var app = angular.module('rspls', ['ngAnimate', 'ngTouch', 'ngRoute', 'ngAria', 'pascalprecht.translate', 'LocalStorageModule']);
+app.config(['$routeProvider', '$translateProvider', 'localStorageServiceProvider', function($routeProvider, $translateProvider, localStorageServiceProvider) {
 	$routeProvider.when('/rules', {
 		templateUrl: 'templates/rules.html',
 		controller: 'RulesController'
@@ -26,6 +26,9 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
 		.translations('en', MSG_EN)
 		.determinePreferredLanguage()
 		.fallbackLanguage('en');
+	localStorageServiceProvider
+		.setStorageType('localStorage')
+		.setPrefix('rspls');
 }]);
 
 app.constant('version', '1.0.1');

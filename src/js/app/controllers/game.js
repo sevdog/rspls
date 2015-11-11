@@ -21,7 +21,7 @@ angular.module('rspls').controller('GameController',
 	$scope.viewCls = 'game';
 	$scope.onlyClassic = settings.values.onlyClassic;
 	$scope.signs = $scope.onlyClassic ? $scope.rules.classics : $scope.rules.signs;
-	$scope.username = settings.values.username;
+	$scope.username = settings.values.user;
 	$scope.isPlaying = false;
 	$scope.timing = false;
 	$scope.choose = false;

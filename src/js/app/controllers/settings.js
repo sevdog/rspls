@@ -19,15 +19,22 @@ angular.module('rspls').controller('SettingsController', ['$scope', '$route', 's
 	$scope.algorithms = algorithms;
 	
 	$scope.reset = function() {
+		// reset settings
 		settings.defaults();
+		// copy default settings
 		$scope.settings = angular.copy(settings.values);
+		// reload the route to make new settings active
 		$route.reload();
+		// hide side menu
 		$scope.visible = false;
 	};
 	
 	$scope.reload = function() {
+		// save the new settings
 		settings.store($scope.settings);
+		// reload the route to make new settings active
 		$route.reload();
+		// hide side menu
 		$scope.visible = false;
 	};
 }]);
