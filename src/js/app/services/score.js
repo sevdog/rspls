@@ -15,12 +15,12 @@
  */
 angular.module('rspls').factory('score', ['storage', function(storage) {
 	var factory = {},
-		score = {
+		// retrive score from storage or set default
+		score = storage.get('score', {
 			play: 0,
 			tie: 0,
 			win: 0
-	};
-	//TODO use storage
+	});
 	
 	// making game, win, tie and lost key readonly
 	Object.defineProperty(factory, 'game', {
@@ -57,6 +57,8 @@ angular.module('rspls').factory('score', ['storage', function(storage) {
 		} else if (tie) {
 			score.tie++
 		}
+		// save score
+		storage.set('score', score);
 	};
 	return factory;
 }]);

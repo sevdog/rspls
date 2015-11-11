@@ -14,16 +14,18 @@
    limitations under the License.
  */
 angular.module('rspls').factory('cpu', ['settings', 'rules', 'storage', function(settings, rules, storage) {
-	//TODO add support for storage
 	var CACHE_MAX_SIZE = 100;
 		movesCache = {
-			moves: [],
+			// retrive moves from storage or set default
+			moves: storage.get('moves', []),
 			push: function(move) {
 				this.moves.push(move);
 				// work like a LRU cache if exeed max size
 				if (this.moves.length >= CACHE_MAX_SIZE) {
 					this.moves.shift();
 				}
+				// save moves after push
+				storage.set('moves', this.moves);
 			},
 			mostUsed: function(signs) {
 				var frequencies =  this.moves.reduce(function(prev, actual) {
