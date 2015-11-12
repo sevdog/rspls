@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('storage', ['localStorageService', function(localStorageService) {
+angular.module('rspls').factory('storageWrapper', ['localStorageService', function(localStorageService) {
 	var factory = {};
 	factory.get = function(key, dft) {
 		var toReturn = dft;

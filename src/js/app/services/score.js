@@ -13,10 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('score', ['storage', function(storage) {
+angular.module('rspls').factory('score', ['storageWrapper', function(storageWrapper) {
 	var factory = {},
 		// retrive score from storage or set default
-		score = storage.get('score', {
+		score = storageWrapper.get('score', {
 			play: 0,
 			tie: 0,
 			win: 0
@@ -58,7 +58,7 @@ angular.module('rspls').factory('score', ['storage', function(storage) {
 			score.tie++
 		}
 		// save score
-		storage.set('score', score);
+		storageWrapper.set('score', score);
 	};
 	return factory;
 }]);
