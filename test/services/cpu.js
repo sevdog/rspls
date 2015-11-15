@@ -28,7 +28,7 @@ describe('CPU service test', function() {
 		}));
 	});
 	describe('With memory alghorithm settings', function() {
-		it('Will use a sign which will win on player most used sign', inject(function(cpu, rules, settings) {
+		it('Will use a sign which will win on player\'s most used sign', inject(function(cpu, rules, settings) {
 			settings.values.algorithm = 'memory';
 			cpu.rememberMove(rules.signs[0]);
 			cpu.rememberMove(rules.signs[0]);
@@ -39,6 +39,42 @@ describe('CPU service test', function() {
 			cpu.rememberMove(rules.signs[0]);
 			var choosed = cpu.choose();
 			expect(parseInt(rules.wins[choosed.sign][0])).toBe(1);
+		}));
+	});
+	describe('With advanced memory alghorithm settings', function() {
+		it('Will use a sign which will win on player\'s most used sign if not enough moves were used', inject(function(cpu, rules, settings) {
+			settings.values.algorithm = 'memoryAdvanced';
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			var choosed = cpu.choose();
+			expect(parseInt(rules.wins[choosed.sign][0])).toBe(1);
+		}));
+		it('Will use a sign which will win on player\'s most used moves sequence', inject(function(cpu, rules, settings) {
+			settings.values.algorithm = 'memoryAdvanced';
+			// the sequence to test is 0001
+			// so the cpu should win on 1
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[1]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[1]);
+			cpu.rememberMove(rules.signs[1]);
+			cpu.rememberMove(rules.signs[3]);
+			cpu.rememberMove(rules.signs[1]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[2]);
+			cpu.rememberMove(rules.signs[4]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			cpu.rememberMove(rules.signs[0]);
+			var choosed = cpu.choose();
+			expect(parseInt(rules.wins[choosed.sign][1])).toBe(1);
 		}));
 	});
 });
