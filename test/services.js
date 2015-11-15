@@ -44,6 +44,25 @@ describe('Score service test', function() {
 		expect(score.lost).toEqual(1);
 		expect(score.situation).toBeLessThan(0);
 	}));
+	it('Will remember previous results', inject(function(score) {
+		score.addGame(true, true)
+		expect(score.win).toEqual(1);
+		expect(score.tie).toEqual(0);
+		expect(score.lost).toEqual(0);
+		expect(score.situation).toBeGreaterThan(0);
+	}), inject(function(score) {
+		score.addGame(false, true)
+		expect(score.win).toEqual(1);
+		expect(score.tie).toEqual(1);
+		expect(score.lost).toEqual(0);
+		expect(score.situation).toBeGreaterThan(0);
+	}), inject(function(score) {
+		score.addGame(false, false)
+		expect(score.win).toEqual(1);
+		expect(score.tie).toEqual(1);
+		expect(score.lost).toEqual(1);
+		expect(score.situation).toEqual(0);
+	}));
 });
 
 describe('CPU service test', function() {
