@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('settings', ['storage', function(storage) {
+angular.module('rspls').factory('settings', ['storageWrapper', function(storageWrapper) {
 	// default values for settings
 	var defaults = {
 			user: '',
@@ -22,7 +22,7 @@ angular.module('rspls').factory('settings', ['storage', function(storage) {
 			onlyClassic: false
 		},
 		// get used settings or default
-		used = storage.get('settings', defaults);
+		used = storageWrapper.get('settings', defaults);
 
 	return {
 		values: angular.copy(used),
@@ -33,7 +33,7 @@ angular.module('rspls').factory('settings', ['storage', function(storage) {
 		store: function(values) {
 			this.values = angular.merge({}, values);
 			// store settings
-			storage.set('settings', this.values);
+			storageWrapper.set('settings', this.values);
 		},
 		/**
 		 * Restores defaults values.
