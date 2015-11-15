@@ -93,8 +93,8 @@ module.exports = function(grunt) {
 			      'src/js/app/templates/<%= pkg.name %>.js'],
 			options: {
 				vendor: ['src/js/assets/angular.min.js', 'src/js/assets/*.js'],
-				helpers: ['test/angular-mock.js', 'test/mock-storage.js', 'test/mock-rspls.js'],
-				specs: ['!test/angular-mock.js', '!test/mock-storage.js', , '!test/mock-rspls.js', 'test/*.js'],
+				helpers: ['test//helpers/*.js'],
+				specs: ['test/services/*.js'],
 				summary: true
 			}
 		}

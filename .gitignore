@@ -10,4 +10,4 @@ dist/js/assets.js
 dist/fonts/**
 node_modules/**
 src/js/app/templates/rspls.js
-test/angular-mocks.js
+test/helpers/angular-mocks.js
