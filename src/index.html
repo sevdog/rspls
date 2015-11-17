@@ -48,10 +48,7 @@
 	</nav>
 	<side-settings visible="status.showSideMenu" ng-cloak></side-settings>
 	<div class="container-fluid" ng-view ng-class="viewCls"></div>
-	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
-		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
-		<i class="fa fa-copyright"></i> {{:: year }} {{ owner }}
-	</footer>
+	<copy-right ng-clock></copy-right>
 	<script type="text/javascript" src="./js/assets/angular.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-aria.min.js"></script>
 	<script type="text/javascript" src="./js/assets/angular-route.min.js"></script>
@@ -69,11 +66,10 @@
 	<script type="text/javascript" src="./js/app/services/score.js"></script>
 	<script type="text/javascript" src="./js/app/services/settings.js"></script>
 	<script type="text/javascript" src="./js/app/services/storage-wrapper.js"></script>
+	<script type="text/javascript" src="./js/app/services/move-memory.js"></script>
 	<script type="text/javascript" src="./js/app/services/cpu.js"></script>
 	<script type="text/javascript" src="./js/app/controllers/rules.js"></script>
-	<script type="text/javascript" src="./js/app/controllers/stats.js"></script>
 	<script type="text/javascript" src="./js/app/controllers/game.js"></script>
-	<script type="text/javascript" src="./js/app/controllers/settings.js"></script>
-	<script type="text/javascript" src="./js/app/controllers/copyright.js"></script>
+	<script type="text/javascript" src="./js/app/directives/copyright.js"></script>
 </body>
 </html>

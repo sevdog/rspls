@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 				dest: 'dist/js/<%= pkg.name %>.js'
 			},
 			pack: {
+				mangle: false,
 				src: ['src/js/assets/angular.min.js', 'src/js/assets/*.js'],
 				dest: 'dist/js/assets.js'
 			}
@@ -83,8 +84,8 @@ module.exports = function(grunt) {
 					}],
 					usePrefix: false
 				},
-					src: 'dist/css/assets.css',
-					dest: 'dist/css/assets.css'
+				src: 'dist/css/assets.css',
+				dest: 'dist/css/assets.css'
 			}
 		},
 		jasmine: {

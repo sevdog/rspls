@@ -13,13 +13,46 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls') .directive('sideSettings', ['$location', function($location) {
-	return {
-		restrict: 'E',
-		scope: {
-			visible: '='
-		},
-		templateUrl: 'templates/settings.html',
-		controller: 'SettingsController'
-	};
-}]);
+(function(ng) {
+	// define directive
+	ng.module('rspls') .directive('sideSettings', sideSettingsDirective);
+	function sideSettingsDirective() {
+		return {
+			restrict: 'E',
+			scope: {
+				visible: '='
+			},
+			templateUrl: 'templates/settings.html',
+			controller: ['$route', 'settings', 'algorithms', settingsController],
+			controllerAs: 'stg',
+			bindToController: true
+		};
+	}
+	// define controller
+	function settingsController($route, settings, algorithms) {
+		var self = this;
+		self.settings = ng.copy(settings.values);
+		self.algorithms = algorithms;
+		self.reset = resetSettings;
+		self.reload = reloadLocation;
+		
+		function resetSettings() {
+			// reset settings
+			settings.defaults();
+			// copy default settings
+			self.settings = ng.copy(settings.values);
+			// reload the route to make new settings active
+			$route.reload();
+			// hide side menu
+			self.visible = false;
+		}
+		function reloadLocation() {
+			// save the new settings
+			settings.store(self.settings);
+			// reload the route to make new settings active
+			$route.reload();
+			// hide side menu
+			self.visible = false;
+		}
+	}
+})(angular)

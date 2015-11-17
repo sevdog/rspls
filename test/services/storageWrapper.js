@@ -1,4 +1,4 @@
-describe('Storage wrapper service', function() {
+describe('Storage Wrapper service', function() {
 	beforeEach(mockRSPLS());
 	it('Will save the value', inject(function(storageWrapper){
 		// first save the value

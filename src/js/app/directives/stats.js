@@ -13,13 +13,32 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls') .directive('stats', ['score', function(score) {
-	return {
-		restrict: 'E',
-		scope: {
-			display: '='
-		},
-		templateUrl: 'templates/stats.html',
-		controller: 'StatsController'
+(function(ng){
+	// define directive
+	ng.module('rspls').directive('stats', statsDirective);
+	function statsDirective() {
+		return {
+			restrict: 'E',
+			scope: {
+				display: '='
+			},
+			templateUrl: 'templates/stats.html',
+			controller: ['$timeout', 'score', statsController],
+			controllerAs: 'stats',
+			bindToController: true
+		};
 	};
-}]);
+	// define controller
+	function statsController($timeout, score) {
+		var self = this;
+		self.pct = function(prop) {
+			if (!score.game) {
+				// if there are no games retuno 0
+				return 0;
+			}
+			// it will return the pct relative to max value of stats
+			var max = Math.max(score.win, score.lost, score.tie);
+			return score[prop] / max * 100;
+		};
+	}
+})(angular);

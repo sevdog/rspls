@@ -13,24 +13,27 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('storageWrapper', ['localStorageService', function(localStorageService) {
-	var factory = {};
-	factory.get = function(key, dft) {
-		var toReturn = dft;
-		if (localStorageService.isSupported) {
-			// if is supported return the key if present
-			// otherwise return default
-			toReturn = localStorageService.get(key) || dft;
-		}
-		return toReturn;
-	};
-	
-	factory.set = function(key, value) {
-		if (localStorageService.isSupported) {
-			// if is supported return the key if present
-			// otherwise return default
-			localStorageService.set(key, value) || dft;
-		}
-	};
-	return factory;
-}]);
+(function(ng){
+	angular.module('rspls').factory('storageWrapper', ['localStorageService', storageWrapperService]);
+	function storageWrapperService(localStorageService) {
+		var factory = {};
+		factory.get = function(key, dft) {
+			var toReturn = dft;
+			if (localStorageService.isSupported) {
+				// if is supported return the key if present
+				// otherwise return default
+				toReturn = localStorageService.get(key) || dft;
+			}
+			return toReturn;
+		};
+		
+		factory.set = function(key, value) {
+			if (localStorageService.isSupported) {
+				// if is supported return the key if present
+				// otherwise return default
+				localStorageService.set(key, value) || dft;
+			}
+		};
+		return factory;
+	}
+})(angular);

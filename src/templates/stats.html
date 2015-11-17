@@ -14,22 +14,22 @@
   limitations under the License.
 -->
 <div class="stat-wrapper">
-	<button type="button" class="btn btn-info btn-lg btn-round" ng-click="display = true" ng-hide="display">
+	<button type="button" class="btn btn-info btn-lg btn-round" ng-click="stats.display = true" ng-hide="stats.display">
 		<i class="fa fa-tasks"></i>
 	</button>
-	<div class="stat well" ng-show="display" ng-click="display = false" >
+	<div class="stat well" ng-show="stats.display" ng-click="stats.display = false" >
 		<div class="progress">
-			<div class="progress-bar progress-bar-success" role="progressbar" ng-style="{width: pct('win') + '%'}">
+			<div class="progress-bar progress-bar-success" role="progressbar" ng-style="{width: stats.pct('win') + '%'}">
 				{{:: 'game.win' | translate }}
 			</div>
 		</div>
 		<div class="progress">
-			<div class="progress-bar progress-bar-warning" role="progressbar" ng-style="{width: pct('tie') + '%'}">
+			<div class="progress-bar progress-bar-warning" role="progressbar" ng-style="{width: stats.pct('tie') + '%'}">
 				{{:: 'game.tie' | translate }}
 			</div>
 		</div>
 		<div class="progress">
-			<div class="progress-bar progress-bar-danger" role="progressbar" ng-style="{width: pct('lost') + '%'}">
+			<div class="progress-bar progress-bar-danger" role="progressbar" ng-style="{width: stats.pct('lost') + '%'}">
 				{{:: 'game.lost' | translate }}
 			</div>
 		</div>

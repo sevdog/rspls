@@ -13,15 +13,22 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls') .directive('nav', ['$location', function($location) {
-	return {
-		restrict: 'A',
-		link: function(scope, element, attrs, controller) {
+(function(ng) {
+	// define directive
+	ng.module('rspls').directive('nav', ['$location', navDirective]);
+	function navDirective($location) {
+		return {
+			restrict: 'A',
+			scope: false,
+			link: navLink
+		};
+		// define link
+		function navLink(scope, element) {
 			// Watch for the $location
 			scope.$watch(function() {
 				return $location.path();
 			}, function(newValue, oldValue) {
-				angular.forEach(element.find('a'), function(a, k) {
+				angular.forEach(element.find('a'), function(a) {
 					var $a = angular.element(a),
 						$li = $a.parent(),
 						pattern = $a.attr('href').replace('#', ''),
@@ -37,5 +44,6 @@ angular.module('rspls') .directive('nav', ['$location', function($location) {
 				});
 			});
 		}
-	};
-}]);
+	}
+})(angular);
+

@@ -13,34 +13,38 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-angular.module('rspls').factory('settings', ['storageWrapper', function(storageWrapper) {
-	// default values for settings
-	var defaults = {
-			user: '',
-			theme: '',
-			algorithm: 'random',
-			onlyClassic: false
-		},
-		// get used settings or default
-		used = storageWrapper.get('settings', defaults);
-
-	return {
-		values: angular.copy(used),
-		/**
-		 * Stores new values in settings.
-		 * @param values the new values to store in settings 
-		 */
-		store: function(values) {
-			this.values = angular.merge({}, values);
-			// store settings
-			storageWrapper.set('settings', this.values);
-		},
-		/**
-		 * Restores defaults values.
-		 */
-		defaults: function() {
-			// restore defaults values
-			this.store(defaults);
-		}
-	};
-}]);
+(function(ng) {
+	// define factory
+	ng.module('rspls').factory('settings', ['storageWrapper', settingsService]);
+	function settingsService(storageWrapper) {
+		// default values for settings
+		var defaults = {
+				user: '',
+				theme: '',
+				algorithm: 'random',
+				onlyClassic: false
+			},
+			// get used settings or default
+			used = storageWrapper.get('settings', defaults);
+	
+		return {
+			values: angular.copy(used),
+			/**
+			 * Stores new values in settings.
+			 * @param values the new values to store in settings 
+			 */
+			store: function(values) {
+				this.values = angular.merge({}, values);
+				// store settings
+				storageWrapper.set('settings', this.values);
+			},
+			/**
+			 * Restores defaults values.
+			 */
+			defaults: function() {
+				// restore defaults values
+				this.store(defaults);
+			}
+		};
+	}
+})(angular);
