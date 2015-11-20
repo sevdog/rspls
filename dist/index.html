@@ -20,6 +20,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Rock Paper Scissor Lizard Spock</title>
+	
 	<link href="./css/assets.css" type="text/css" rel="stylesheet">
 	<link href="./css/rspls.css" type="text/css" rel="stylesheet">
 </head>
@@ -46,10 +47,8 @@
 	</nav>
 	<side-settings visible="status.showSideMenu" ng-cloak></side-settings>
 	<div class="container-fluid" ng-view ng-class="viewCls"></div>
-	<footer ng-controller="CopyRightController" class="text-right text-muted" ng-cloak>
-		<h5>{{:: 'version' | translate }} {{:: version }}</h5>
-		<i class="fa fa-copyright"></i> {{:: year }} {{ owner }}
-	</footer>
+	<copy-right ng-clock></copy-right>
+	
 	<script type="text/javascript" src="./js/assets.js"></script>
 	<script type="text/javascript" src="./js/rspls.js"></script>
 </body>

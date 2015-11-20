@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			}
 		},
 		copy : {
-			main: {
+			pack: {
 				expand: true,
 				cwd: 'src/fonts/',
 				src: '**',
@@ -51,7 +51,6 @@ module.exports = function(grunt) {
 				src: '*.html',
 				dest: 'src/js/app/templates/<%= pkg.name %>.js',
 				options: {
-					//append: true,
 					module: '<%= pkg.name %>',
 					prefix: 'templates/',
 					htmlmin: {
@@ -86,6 +85,25 @@ module.exports = function(grunt) {
 				},
 				src: 'dist/css/assets.css',
 				dest: 'dist/css/assets.css'
+			},
+			dist: {
+				options: {
+					patterns: [{
+						match: /<!-- Dev(.|\s)*?\/Dev -->/g,
+						replacement: ''
+					}, {
+						match: '<!-- Prod-js -->',
+						replacement: '<script type="text/javascript" src="./js/assets.js"></script>\n' +
+							'	<script type="text/javascript" src="./js/rspls.js"></script>'
+					}, {
+						match: '<!-- Prod-css -->',
+						replacement: '<link href="./css/assets.css" type="text/css" rel="stylesheet">\n' +
+							'	<link href="./css/rspls.css" type="text/css" rel="stylesheet">'
+					}],
+					usePrefix: false
+				},
+				src: 'src/index.html',
+				dest: 'dist/index.html'
 			}
 		},
 		jasmine: {
@@ -108,8 +126,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-	grunt.registerTask('dist', ['ngtemplates', 'uglify:dist', 'cssmin:dist']);
-	grunt.registerTask('pack', ['uglify:pack', 'copy', 'cssmin:pack', 'replace']);
+	grunt.registerTask('dist', ['ngtemplates', 'uglify:dist', 'replace:dist', 'cssmin:dist']);
+	grunt.registerTask('pack', ['uglify:pack', 'copy:pack', 'cssmin:pack', 'replace:pack']);
 	grunt.registerTask('test', ['jasmine']);
 
 };
