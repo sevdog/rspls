@@ -35,7 +35,7 @@
 			.setPrefix('rspls');
 	}
 	// define constants
-	ng.module('rspls').constant('version', '1.0.1');
+	ng.module('rspls').constant('version', '1.0.2');
 	ng.module('rspls').constant('crYearFrom', '2015');
 	ng.module('rspls').constant('crYearTo', '');
 	ng.module('rspls').constant('crOwner', 'sevdog');
